@@ -47,7 +47,7 @@ def create(name_project):
     except FileExistsError:
         print_error(f'Directory "{name_project}" already exists.')
     except Exception as e:
-        print_error(f'An error occurred: {e}')
+        print_error(e)
 
 def install_dependencies():
     try:
@@ -84,7 +84,7 @@ def run():
         print_debug(f'Executing {base_file}...')
         subprocess.check_call([sys.executable, base_file])
     except Exception as e:
-        print_error(f'An error occurred while running the project: {e}')
+        print_error(e)
 
 def print_help():
     print(f"{Fore.YELLOW}PPM - the simple and fast python3 project manager{Style.RESET_ALL}")
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     try:
         if len(sys.argv) < 2:
             print_help()
-        elif sys.argv[1] == 'create' and len(sys.argv) == 3:
+        elif sys.argv[1] == 'new' and len(sys.argv) == 3:
             create(sys.argv[2])
         elif sys.argv[1] == 'run':
             run()
@@ -113,4 +113,4 @@ if __name__ == '__main__':
             print_error("Unknown command or incorrect arguments!")
             print_help()
     except Exception as e:
-        print_error(f'An error occurred: {e}')
+        print_error(e)
