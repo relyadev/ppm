@@ -28,7 +28,7 @@ def create(name_project):
         os.mkdir(name_project)
         os.chdir(name_project)
         dependencies = {
-            "example-lib": "1.0.0"
+            "ExampleLib": "1.0.0"
         }
         project = {
             "Name": name_project,
